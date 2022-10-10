@@ -1,0 +1,4 @@
+function generatePage(data){
+return `
+`
+}

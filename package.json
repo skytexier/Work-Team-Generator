@@ -1,0 +1,21 @@
+{
+  "name": "work-team-generator",
+  "version": "1.0.0",
+  "description": "automated team generator built with inquirer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "inquirer",
+    "node",
+    "javascript",
+    "generator"
+  ],
+  "author": "Sky Texier",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "inquirer": "^8.2.4"
+  }
+}
