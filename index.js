@@ -4,14 +4,23 @@ const generatePage = require('./generatePage');
 const Employee = require('./lib/Employee');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const Manager = require('./lib/Manager');
 const team = [];
 
-const questions = [
+const roleSelect = [
     {
         type: "list",
         message: "What type of employee would to like to add?",
-        choices: ["Manager", "Engineer", "Intern", "None, exit application"],
+        choices: ["Manager", "Engineer", "Intern", "None"],
         name: "choices"
+        
+    }
+]
+const engineerQuestions = [
+    {
+        type: "input",
+        message: "What is this employees name?",
+        name: "name",
         
     },
     {
@@ -26,9 +35,6 @@ const questions = [
         name: "email",
         
     },
-]
-
-const engineerQuestions = [
     {
         type: "input",
         message: "What is this engineers Github",
@@ -40,6 +46,24 @@ const engineerQuestions = [
 const internQuestions = [
     {
         type: "input",
+        message: "What is this employees name?",
+        name: "name",
+        
+    },
+    {
+        type: "input",
+        message: "What is this employees ID?",
+        name: "id",
+        
+    },
+    {
+        type: "input",
+        message: "What is this employees email?",
+        name: "email",
+        
+    },
+    {
+        type: "input",
         message: "What is this interns university/school name?",
         name: "school",
         
@@ -49,6 +73,24 @@ const internQuestions = [
 const managerQuestions = [
     {
         type: "input",
+        message: "What is this employees name?",
+        name: "managerName",
+        
+    },
+    {
+        type: "input",
+        message: "What is this employees ID?",
+        name: "id",
+        
+    },
+    {
+        type: "input",
+        message: "What is this employees email?",
+        name: "email",
+        
+    },
+    {
+        type: "input",
         message: "What is this managers office number?",
         name: "officeNumber",
         
@@ -56,43 +98,55 @@ const managerQuestions = [
 ]
 
 function init(data) {
-    inquirer.prompt(questions).then((data) => {
-        let choice = data.choices;
-        let general = data;
-        console.log(choice)
-        switch (choice){
+    return inquirer.prompt(roleSelect).then((answer) => {
+        let role = answer.choices;
+        console.log(role + " selected!")
+        switch (role){
                 case "Engineer":
-                    console.log(data);
-                    inquirer.prompt(engineerQuestions).then((data) => {
-                        let totalInfo = {
-                            ...data,
-                            ...general,
-                        }
-                        team.push(totalInfo)
-                        console.log(team)
-                    })
+                    inquirer.prompt(engineerQuestions).then((data) => {    
+                        const engineer = new Engineer(data.name, data.id, data.email, data.github)
+                        team.push(engineer)
+                        console.log("Engineer added to roster")
+                        init()
+                        })
                     break;
                 
                 case "Intern":
-                    console.log("Good");
                     inquirer.prompt(internQuestions).then((data) => {
-                        team.push(data)
+                        const intern = new Intern(data.name, data.id, data.email, data.school)
+                        team.push(intern)
+                        console.log("Intern added to roster");
+                        init()
                     })
                     break;
     
                 case "Manager":
-                    console.log("Sweet");
                     inquirer.prompt(managerQuestions).then((data) => {
-                        team.push(data)
+                        const manager = new Manager(data.managerName, data.id, data.email, data.officeNumber)
+                        team.push(manager)
+                        console.log("Manager added to roster");
+                        init()
                     })
                     break;
-    
+                case "None":
+                    console.log(JSON.stringify(team));
+                    let crew = JSON.stringify(team)
+                    console.log("No more employees will be added, thank you")
+                    console.log("Your team roster will now be generated")
+                    writeToFile(generatePage(team));
+                    break;
                 default:
                     return "Error adding this employee";
         }
     }) 
 };
 
-function getTeam() 
+function writeToFile (filename, data){
+    fs.writeFile("index.html", filename, (err, data) => {
+        err ? console.log(err) : console.log("Team page generated");
+    });
+}
 
-init();
+
+
+init()
