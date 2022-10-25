@@ -12,9 +12,13 @@ Overall this project reified my understanding of Inquirer and helped develop a d
 ## Table of Contents
 - [Installation] (#installation)
 - [Usage/Examples](#usage-and-video-example)
-- [Usage/Examples] (#usage)
 - [Credits] (#credits)
 - [License] (#license)
+  
+## Installation
+
+The only requirement for this application to run is NodeJS and ensuring that both Inquirer and Node are up to date.
+For tests one would need to install Jest if not already installed. 
 
 # Usage and Video Example
   
@@ -28,26 +32,13 @@ Here is a screenshot of what the terminal looked like in generating this HTML pa
 
 And this is a screenshot of the finished HTML page
 
-![alt text](./assets/workteam.png.png)
-
-  
-## Installation
-
-The only requirement for this application to run is NodeJS and ensuring that both Inquirer and Node are up to date.
-For tests one would need to install Jest if not already installed. 
-
-
-## Usage/Examples
-
-[This is a video link](https://drive.google.com/file/d/1lR3U2a_Tx7InEp64oWyv1Cja1pxxRUW-/view?usp=sharing) to a basic walkthrough of how this application works. Aside from this one must run `node index` in their terminal to begin the proccess.
-
-Here is a screenshot of what the terminal looks like when generating this HTML page.
-
-![alt text](./Assets/terminal.png)
+![alt text](./assets/workteam.png)
 
 
 ## Credits
+For this project I refrenced a lot of in class work, however I also referred to my classmate [Ish](https://github.com/ianad389) for some challenges regarding implementing the HTML generator and transfering data between the two scripts.
 
+For understanding Jest I used [https://www.valentinog.com/blog/jest/](https://www.valentinog.com/blog/jest/), and for understanding super constructors a bit better [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super).
 
 ## License
 MIT License
