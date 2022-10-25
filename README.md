@@ -10,17 +10,18 @@ The most challenging aspect of this application was figuring out how Inquirer ca
 Overall this project reified my understanding of Inquirer and helped develop a deeper familiarity with object classes.
 
 ## Table of Contents
-- [Installation] (#installation)
+- [Installation](#installation)
 - [Usage/Examples](#usage-and-video-example)
-- [Credits] (#credits)
-- [License] (#license)
+- [Credits](#credits)
+- [License](#license)
+- [Tests](#tests)
   
 ## Installation
 
 The only requirement for this application to run is NodeJS and ensuring that both Inquirer and Node are up to date.
 For tests one would need to install Jest if not already installed. 
 
-# Usage and Video Example
+## Usage and Video Example
   
 [This is a video link](https://drive.google.com/file/d/1LGSIBD1jT6PExy8Y95eLanOdcrAxXcEy/view?usp=sharing) to a basic walkthrough of how this application works. 
 
@@ -34,6 +35,9 @@ And this is a screenshot of the finished HTML page
 
 ![alt text](./assets/workteam.png)
 
+## Tests
+
+To run tests type `npm test` which will run through the four classes used in this script and check to make sure they're working properly to catch employee id's, names, emails and so on.
 
 ## Credits
 For this project I refrenced a lot of in class work, however I also referred to my classmate [Ish](https://github.com/ianad389) for some challenges regarding implementing the HTML generator and transfering data between the two scripts.
