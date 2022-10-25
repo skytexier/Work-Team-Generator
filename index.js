@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const generatePage = require("./generatePage");
+const generatePage = require("./dist/generatePage");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
@@ -144,7 +144,7 @@ function init() {
 }
 
 const writeToFile = data => {
-  fs.writeFile("index.html", data, (err) => {
+  fs.writeFile("./src/index.html", data, (err) => {
     err ? console.log(err) : console.log("Team page generated");
   });
 };

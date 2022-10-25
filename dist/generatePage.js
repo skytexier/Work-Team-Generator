@@ -27,7 +27,7 @@ const generatePage = team => {
         </div>`
         };
     const getIntern = intern => {
-        return `<div class="card bg-danger">
+        return `<div class="card bg-danger m-3">
         <div class="card-body">
         <h3 class="card-title text-center">${intern.getRole()}</h3>
         <ul class="list-group list-group-flush">
